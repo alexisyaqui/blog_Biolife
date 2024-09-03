@@ -1,0 +1,17 @@
+
+
+<div class="header-search-bar layout-01">
+    <form action="{% url 'search' %}" class="form-search"  method="GET">
+        <input type="text" name="keyword" class="input-text" value="{{keyword}}"
+            placeholder="Buscar producto...">
+
+        <select name="category">
+            {% for categoria in categories %}
+            <option value="vegetables">{{categoria.categoria_name}}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn-submit"><i
+                class="biolife-icon icon-search"></i></button>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container col-3">
+    <div class="container">
+        <a href="{% url 'agregar_categoria' %}" class="btn btn-primary btn-lg">
+            <i class="fi-rs-folder-add mr-10"></i>
+            Agregar Categoria
+        </a>
+
+    </div>
+    <div class="table-bordered ">
+        <p class=" text-center text-font-weight-bold">Listado de categorias</p>
+        <div class="table-striped">
+
+
+            <div class="table">
+                <table class="table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Fecha Creacion</th>
+                            <th scope="col">Fecha Actualizacion</th>
+                            <th scope="col">Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for categorias in categories %}
+                        <tr>
+                            <th scope="row">{{categorias.id}}</th>
+                            <td class="text-center">{{categorias.categoria_name}}</td>
+                            <td class="text-center">{{categorias.create_at}}</td>
+                            <td class="text-center">{{categorias.update_at}}</td>
+                            <td><a href="{% url 'editar_categoria' categorias.id %}"><i class="fa fa-pencil-square-o"></i></a> ||
+                                <a href="{% url 'eliminar_categoria' categorias.id %}"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

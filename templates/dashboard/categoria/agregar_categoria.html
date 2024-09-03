@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+    <div class="row">
+
+        <!--Form Sign In-->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="signin-container">
+                <form action="{% url 'agregar_categoria' %}" method="post">
+                    {% csrf_token %}
+                    {{form}}
+
+                    <div class="login-footer form-group mb-50">
+                        <button type="submit" class="btn btn-bold">Agregar Categoria</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

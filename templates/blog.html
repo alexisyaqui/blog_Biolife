@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-contain blog-page left-sidebar">
+    <div class="container">
+        <div class="row">
+
+            <!-- Main content -->
+            <div id="main-content" class="main-content col-lg-9 col-md-8 col-sm-12 col-xs-12">
+
+                <!--Single Post Contain-->
+                <div class="single-post-contain">
+
+                    <div class="post-head">
+                        <div class="thumbnail">
+                            <figure><img src="{{single_blog.feature_image.url}}" width="870" height="635" alt="">
+                            </figure>
+                        </div>
+                        <h2 class="post-name">{{feature_image.title}}</h2>
+                        <p class="post-archive"><b class="post-cat">{{single_blog.category}}</b><span
+                                class="post-date"> {{single_blog.create_at}}
+                                </span><span class="author"></span></p>
+                    </div>
+
+                    <div class="post-content">
+                        <p>{{single_blog.short_description}}</p>
+                        <p>{{single_blog.blog_body}}</p>
+                        <a href="#" class="author">Elaborado por  </a>
+                        <span>Chef: {{single_blog.author}}</span>
+                        </address>
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

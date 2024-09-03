@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+    <div class="row">
+
+        <!--Form Sign In-->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="signin-container">
+                <form action="{% url 'agregar_posts' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form | crispy}}
+
+                    <div class="login-footer form-group mb-50">
+                        <button type="submit" class="btn btn-bold">Agregar Posts</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<!-- Main content -->
+
+<div class="container">
+
+    <div class="row">
+
+        <!--Form Sign In-->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="signin-container">
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    {{form | crispy}}
+
+                    <div class="login-footer form-group mb-50">
+                        <button type="submit" class="btn btn-bold" name="login">Iniciar Sesion</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--Go to Register form-->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="register-in-container">
+                <div class="intro">
+                    <h4 class="box-title">Quieres ser Parte de nosotros?</h4>
+                    <p class="sub-title">Crea tu usuario para ver los beneficios de nuestra plataforma</p>
+                    <ul class="list">
+                        <li>Revisa mas Rapido</li>
+                        <li>Guarda multiples compras y envios</li>
+                        <li>Accede a tu historial de pedidos</li>
+                        <li>Dale seguimiento a tus pedidos</li>
+                        <li>Guarda tus articulos en tu lista de deseos.</li>
+                    </ul>
+                    <a href="{% url 'register' %}" class="btn btn-bold">Registrarse</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

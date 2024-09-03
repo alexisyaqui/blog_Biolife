@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container col-3">
+    <div class="container">
+        <a href="{% url 'agregar_posts' %}" class="btn btn-primary btn-lg">
+            <i class="fi-rs-folder-add mr-10"></i>
+            Agregar Posts
+        </a>
+
+    </div>
+    <div class="table-bordered ">
+        <p class=" text-center text-font-weight-bold">Listado de Posts</p>
+        <div class="table-striped">
+
+
+            <div class="table">
+                <table class="table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Publicado</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in posts %}
+                        <tr>
+                            <th scope="row">{{post.id}}</th>
+                            <td class="text-center">{{post.title}}</td>
+                            <td class="text-center">{{post.category}}</td>
+                            <td class="text-center">{{post.author}}</td>
+                            <td class="text-center">{{post.status}}</td>
+                            <td class="text-center">{% if post.is_featured %} Si {% else %} No {% endif%}</td>
+                            <td><a href="{% url 'editar_posts' post.id %}"><i class="fa fa-pencil-square-o"></i></a> ||
+                                <a href="{% url 'eliminar_posts' post.id %}"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
